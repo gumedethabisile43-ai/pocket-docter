@@ -1,0 +1,77 @@
+
+import 'package:flutter/material.dart';
+import 'search/search_delegate.dart';
+import 'voice/voice_button.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = Theme.of(context).textTheme;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Pocket Doctor'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            tooltip: 'Search',
+            onPressed: () => showSearch(context: context, delegate: DRSearchDelegate()),
+          )
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Card(
+            elevation: 0,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                'Pocket Doctor (DR) helps everyone — especially partially sighted and blind users — '
+                'navigate safely with voice, download offline maps, and share ride details and live location with trusted contacts.',
+                style: t.bodyMedium,
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          ListTile(
+            leading: const Icon(Icons.info_outline),
+            title: const Text('Introduction & How to use'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).pushNamed('/intro'),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.record_voice_over),
+            title: const Text('Start navigation (voice)'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () { /* TODO: hook to nav flow later */ },
+          ),
+          ListTile(
+            leading: const Icon(Icons.download_for_offline),
+            title: const Text('DR downloads (offline maps)'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).pushNamed('/offline'),
+          ),
+          ListTile(
+            leading: const Icon(Icons.shield_moon_outlined),
+            title: const Text('Ride Safety'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).pushNamed('/safety'),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.help_outline),
+            title: const Text('Help & About'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).pushNamed('/help'),
+          ),
+        ],
+      ),
+      floatingActionButton: const VoiceButton(),
+    );
+  }
+}
+ 
