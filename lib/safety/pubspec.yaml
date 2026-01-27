@@ -1,0 +1,39 @@
+name: dr
+description: "Pocket Doctor (DR) – Accessible navigation & safety (voice-first, offline)"
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Voice in/out
+  speech_to_text: ^6.6.0
+  flutter_tts: ^3.8.3
+  # Location & permissions
+  geolocator: ^12.0.0
+  permission_handler: ^11.3.1
+  # State, utils
+  provider: ^6.0.5
+  shared_preferences: ^2.2.3
+  url_launcher: ^6.2.6
+  http: ^1.2.1
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo/
+
+flutter_launcher_icons:
+  image_path: assets/logo/dr_logo.png
+  android: true
+  ios: true
+  adaptive_icon_background: "#1A237E"
+  adaptive_icon_foreground: assets/logo/dr_logo.png
+ 
