@@ -7,7 +7,11 @@ environment:
   sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
+  dependencies:
   flutter:
+    sdk: flutter
+  maplibre_gl: ^0.25.0
+  # (your other packages stay)
     sdk: flutter
   # Voice in/out
   speech_to_text: ^6.6.0
