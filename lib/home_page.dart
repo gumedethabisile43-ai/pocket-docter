@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'search/search_delegate.dart';
 import 'voice/voice_button.dart';
